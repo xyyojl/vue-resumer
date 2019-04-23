@@ -1,14 +1,13 @@
 <template>
-    <div id="resumeEditor">这是 ResumeEditor</div>
+    <div id="resumeEditor"></div>
 </template>
 <script>
 export default {
     name:'ResumeEditor'
 }
 </script>
-<style>
+<style lang="scss" scoped>
 #resumeEditor{
-    color:green;
-    border:1px solid green;
+    min-height: 100px;
 }
 </style>

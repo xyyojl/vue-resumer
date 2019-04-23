@@ -1,14 +1,13 @@
 <template>
-    <div id="resumePreview">这是 ResumePreview</div>
+    <div id="resumePreview"></div>
 </template>
 <script>
 export default {
     name:'ResumePreview'
 }
 </script>
-<style>
+<style lang="scss" scoped>
 #resumePreview{
-    color:red;
-    border:1px solid red;
+    min-height: 100px;
 }
 </style>
