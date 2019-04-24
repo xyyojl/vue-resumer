@@ -32,7 +32,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-html,body{
+html,
+body {
   height: 100vh;
 }
 #app {
@@ -43,30 +44,36 @@ html,body{
   display: flex;
   flex-direction: column;
 }
-.topbar{
-  background-color: #407FE3;
-  box-shadow: 0 0 3px hsla(0,0,0,0.5);
+.topbar {
+  background-color: #407fe3;
+  box-shadow: 0 0 3px hsla(0, 0, 0, 0.5);
 }
-main{
+main {
   display: flex;
   flex: 1;
   background-color: #ddd;
-  > .editor{
+  > .editor {
     width: 40em;
-    background-color: #192229;
     margin: 16px 8px 16px 16px;
-    box-shadow: 0 0 3px hsla(0,0,0,0.5);
+    box-shadow: 0 0 3px hsla(0, 0, 0, 0.5);
     border-radius: 4px;
     overflow: hidden;
   }
-  > .preview{
+  > .preview {
     flex: 1;
     background-color: #fff;
     margin: 16px 16px 16px 8px;
-    box-shadow: 0 0 3px hsla(0,0,0,0.5);
+    box-shadow: 0 0 3px hsla(0, 0, 0, 0.5);
     border-radius: 4px;
     overflow: hidden;
   }
+}
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }
 </style>
 

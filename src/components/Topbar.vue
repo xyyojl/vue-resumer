@@ -1,6 +1,10 @@
 <template>
     <div id="topbar">
         <h1 class="title">Resumer</h1>
+        <div>
+            <el-button type="primary">注册</el-button>
+            <el-button>登录</el-button>
+        </div>
     </div>
 </template>
 <script>
@@ -16,6 +20,7 @@ export default {
     align-items: center;
     padding-left: 104px;
     padding-right: 104px;
+    justify-content: space-between;
     > .title{
         
     }
