@@ -22,7 +22,7 @@
         <workHistory v-bind:workHistory="workHistory"/>
       </li>
       <li v-bind:class="{active:currentTab === 2}">
-        <h2>教育经历</h2>
+        <studyHistory v-bind:studyHistory="studyHistory"></studyHistory>
       </li>
       <li v-bind:class="{active:currentTab === 3}">
         <h2>项目经历</h2>
@@ -39,6 +39,8 @@
 <script>
 import profileEditor from "./ProfileEditor";
 import workHistory from "./WorkHistory";
+import studyHistory from "./StudyHistory";
+
 
 export default {
   name: "ResumeEditor",
@@ -53,13 +55,22 @@ export default {
         job: "",
         introduction: ""
       },
-      workHistory: [{ company: "", content: "", post: "" }]
+      workHistory: [{ company: "", content: "", post: "" }],
+      studyHistory:[
+        {
+          school:'',
+          profession:'',
+          education:['大专','本科','硕士','博士','其它'],
+          graduation:''
+        }
+      ]
     };
   },
   methods: {},
   components: {
     profileEditor,
-    workHistory
+    workHistory,
+    studyHistory
   }
 };
 </script>
@@ -131,6 +142,33 @@ export default {
           margin-left: -34px;
         }
       }
+      > div .studyInput{
+        width: 390px;
+        padding: 20px 32px 32px 32px;
+        position: relative;
+        label{
+          padding-bottom: 0;
+        }
+        > div{
+            margin-bottom: 20px;
+            box-shadow: 0 0 3px hsla(0, 0, 0, 0.3);
+            padding: 30px 16px;
+            position: relative;
+            > .el-icon-circle-close{
+                position: absolute;
+                right: 16px;
+                top: 16px;
+                z-index: 10;
+            }
+        }
+        > .btn{
+            position: absolute;
+            right: 32px;
+            bottom: 7px;
+            left: 50%;
+            margin-left: -34px;
+        }
+    }
     }
   }
 }
