@@ -152,7 +152,7 @@ export default {
         > div{
             margin-bottom: 20px;
             box-shadow: 0 0 3px hsla(0, 0, 0, 0.3);
-            padding: 30px 16px;
+            padding: 16px;
             position: relative;
             > .el-icon-circle-close{
                 position: absolute;

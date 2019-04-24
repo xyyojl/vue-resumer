@@ -37,6 +37,11 @@ export default {
     removeWorkHistory(index) {
       this.workHistory.splice(index, 1);
     }
+  },
+  data(){
+    return {
+      // labelPosition:'top',
+    }
   }
 };
 </script>
