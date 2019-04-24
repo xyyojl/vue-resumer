@@ -2,45 +2,22 @@
     <div id="resumeEditor">
         <nav>
             <ol>
-                <li v-bind:class="{active:currentTab === 0}" v-on:click="currentTab = 0">
-                    <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-shenfenzheng"></use>
+                <li v-for="(item,index) in [0,1,2,3,4,5]" 
+                    :class="{active:currentTab === item}"
+                    @click="currentTab = item"
+                    :key="index"
+                    >
+                    <svg class="icon">
+                    <use v-bind:xlink:href="`#icon-${icons[item]}`"></use>
                     </svg>
-                </li>
-                <li v-bind:class="{active:currentTab === 1}" v-on:click="currentTab = 1">
-                    <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-work"></use>
-                    </svg>                    
-                </li>
-                <li v-bind:class="{active:currentTab === 2}" v-on:click="currentTab = 2">
-                    <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-book"></use>
-                    </svg>                          
-                </li>
-                <li v-bind:class="{active:currentTab === 3}" v-on:click="currentTab = 3">
-                    <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-xiangmu"></use>
-                    </svg>                          
-                </li>
-                <li v-bind:class="{active:currentTab === 4}" v-on:click="currentTab = 4">
-                    <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-jiangbei"></use>
-                    </svg>                          
-                </li>
-                <li v-bind:class="{active:currentTab === 5}" v-on:click="currentTab = 5">
-                    <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-phone"></use>
-                    </svg>                          
-                </li>                                
+                </li>                          
             </ol>
         </nav>
         <ol class="panes">
-           <li :class="{active:currentTab === 0}">Tab1</li>
-           <li :class="{active:currentTab === 1}">Tab2</li>
-           <li :class="{active:currentTab === 2}">Tab3</li>
-           <li :class="{active:currentTab === 3}">Tab4</li>
-           <li :class="{active:currentTab === 4}">Tab5</li>
-           <li :class="{active:currentTab === 5}">Tab6</li>
+            <li v-for="(item,index) in [0,1,2,3,4,5]" 
+                :class="{active:currentTab === item}" 
+                :key="index"
+                >Tab{{item+1}}</li>
         </ol>
     </div>
 </template>
@@ -50,6 +27,7 @@ export default {
     data(){
         return {
             currentTab: 0,
+            icons:['shenfenzheng', 'work', 'book', 'xiangmu', 'jiangbei', 'phone']
         }
     }
 }
