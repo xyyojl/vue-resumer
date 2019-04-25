@@ -17,16 +17,15 @@ import "./assets/reset.scss";
 import Topbar from "./components/Topbar";
 import ResumeEditor from "./components/ResumeEditor";
 import ResumePreview from "./components/ResumePreview";
+import store from './store/index'
 
 export default {
   name: "App",
-  data() {
-    return { message: "hello Vue" };
-  },
+  store,
   components: {
     Topbar,
     ResumeEditor,
-    ResumePreview
+    ResumePreview,
   }
 };
 </script>

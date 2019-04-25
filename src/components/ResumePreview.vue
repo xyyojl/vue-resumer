@@ -1,9 +1,22 @@
 <template>
-    <div id="resumePreview"></div>
+    <div id="resumePreview">
+        {{count}}
+        <button @click="add">xxxx</button>  
+    </div>
 </template>
 <script>
 export default {
-    name:'ResumePreview'
+    name:'ResumePreview',
+    computed:{
+        count(){
+            return this.$store.state.count;
+        }
+    },
+    methods:{
+        add(){
+            this.$store.commit('increment');
+        }
+    }
 }
 </script>
 <style lang="scss" scoped>
