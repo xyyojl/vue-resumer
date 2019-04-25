@@ -16,22 +16,22 @@
     </nav>
     <ol class="panes">
       <li v-bind:class="{active:currentTab === 0}">
-        <profileEditor v-bind:profile="profile"/>
+        <profileEditor v-bind:profile="resume.profile"/>
       </li>
       <li v-bind:class="{active:currentTab === 1}">
-        <workHistory v-bind:workHistory="workHistory"/>
+        <workHistory v-bind:workHistory="resume.workHistory"/>
       </li>
       <li v-bind:class="{active:currentTab === 2}">
-        <studyHistory v-bind:studyHistory="studyHistory"></studyHistory>
+        <studyHistory v-bind:studyHistory="resume.studyHistory"></studyHistory>
       </li>
       <li v-bind:class="{active:currentTab === 3}">
-        <projectsHistory v-bind:projectsHistory="projectsHistory"/>
+        <projectsHistory v-bind:projectsHistory="resume.projectsHistory"/>
       </li>
       <li v-bind:class="{active:currentTab === 4}">
-        <honorsHistory v-bind:honorsHistory="honorsHistory"/>
+        <honorsHistory v-bind:honorsHistory="resume.honorsHistory"/>
       </li>
       <li v-bind:class="{active:currentTab === 5}">
-        <contactInformation v-bind:contactInformation="contactInformation"/>
+        <contactInformation v-bind:contactInformation="resume.contactInformation"/>
       </li>
     </ol>
   </div>
@@ -67,6 +67,10 @@ export default {
     icons(){
       return this.$store.state.icons;
     },
+    resume(){
+      return this.$store.state.resume;
+    },
+    /* 
     profile(){
       return this.$store.state.profile;
     },
@@ -84,7 +88,7 @@ export default {
     },
     contactInformation(){
       return this.$store.state.contactInformation;
-    }, 
+    },  */
   }
 };
 </script>
