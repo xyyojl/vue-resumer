@@ -46,50 +46,6 @@ import contactInformation from "./ContactInformation";
 
 export default {
   name: "ResumeEditor",
-  data() {
-    return {
-      currentTab: 0,
-      icons: ["shenfenzheng", "work", "book", "xiangmu", "jiangbei", "phone"],
-      profile: {
-        name: "",
-        city: "",
-        birth: "",
-        job: "",
-        introduction: ""
-      },
-      workHistory: [{ company: "", content: "", post: "" }],
-      studyHistory:[
-        {
-          school:'',
-          profession:'',
-          // education:'',
-          education:['大专','本科','硕士','博士','其它'],
-          graduation:''
-        }
-      ],
-      projectsHistory:[
-        {
-          projectName:'',
-          responsibilities:'',
-          useTime:'',
-          projectIntroduction: ''
-        }
-      ],
-      honorsHistory:[
-        {
-          awards:'',
-          honorDate:''
-        }
-      ],
-      contactInformation:[
-        {
-          phone:'',
-          email:'',
-          blog:''
-        }
-      ]
-    };
-  },
   methods: {},
   components: {
     profileEditor,
@@ -98,6 +54,37 @@ export default {
     projectsHistory,
     honorsHistory,
     contactInformation
+  },
+  computed:{
+    currentTab:{
+      get(){
+        return this.$store.state.currentTab;
+      },
+      set(value){
+        return this.$store.commit('switchTab', value)
+      }
+    },
+    icons(){
+      return this.$store.state.icons;
+    },
+    profile(){
+      return this.$store.state.profile;
+    },
+    workHistory(){
+      return this.$store.state.workHistory;
+    },
+    studyHistory(){
+      return this.$store.state.studyHistory;
+    },
+    projectsHistory(){
+      return this.$store.state.projectsHistory;
+    },
+    honorsHistory(){
+      return this.$store.state.honorsHistory;
+    },
+    contactInformation(){
+      return this.$store.state.contactInformation;
+    }, 
   }
 };
 </script>
