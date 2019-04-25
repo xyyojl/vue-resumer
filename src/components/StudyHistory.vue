@@ -12,11 +12,11 @@
                 </el-form-item>         
                 <el-form-item label="学历" :inline="true" label-width="80px">
                     <el-select placeholder="学历" v-model="study.education">
-                        <el-option label="大专" value="zhuanke"></el-option>
-                        <el-option label="本科" value="Undergraduate"></el-option>
-                        <el-option label="硕士" value="master"></el-option>
-                        <el-option label="博士" value="PhD"></el-option>
-                        <el-option label="其它" value="other"></el-option>
+                        <el-option label="大专" value="大专"></el-option>
+                        <el-option label="本科" value="本科"></el-option>
+                        <el-option label="硕士" value="硕士"></el-option>
+                        <el-option label="博士" value="博士"></el-option>
+                        <el-option label="其它" value="其它"></el-option>
                     </el-select>
                 </el-form-item>         
                 <el-form-item label="毕业时间">
