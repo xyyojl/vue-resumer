@@ -25,13 +25,13 @@
         <studyHistory v-bind:studyHistory="studyHistory"></studyHistory>
       </li>
       <li v-bind:class="{active:currentTab === 3}">
-        <h2>项目经历</h2>
+        <projectsHistory v-bind:projectsHistory="projectsHistory"/>
       </li>
       <li v-bind:class="{active:currentTab === 4}">
-        <h2>获奖情况</h2>
+        <honorsHistory v-bind:honorsHistory="honorsHistory"/>
       </li>
       <li v-bind:class="{active:currentTab === 5}">
-        <h2>联系方式</h2>
+        <contactInformation v-bind:contactInformation="contactInformation"/>
       </li>
     </ol>
   </div>
@@ -40,7 +40,9 @@
 import profileEditor from "./ProfileEditor";
 import workHistory from "./WorkHistory";
 import studyHistory from "./StudyHistory";
-
+import projectsHistory from "./ProjectsHistory";
+import honorsHistory from "./HonorsHistory";
+import contactInformation from "./ContactInformation";
 
 export default {
   name: "ResumeEditor",
@@ -60,8 +62,30 @@ export default {
         {
           school:'',
           profession:'',
+          // education:'',
           education:['大专','本科','硕士','博士','其它'],
           graduation:''
+        }
+      ],
+      projectsHistory:[
+        {
+          projectName:'',
+          responsibilities:'',
+          useTime:'',
+          projectIntroduction: ''
+        }
+      ],
+      honorsHistory:[
+        {
+          awards:'',
+          honorDate:''
+        }
+      ],
+      contactInformation:[
+        {
+          phone:'',
+          email:'',
+          blog:''
         }
       ]
     };
@@ -70,7 +94,10 @@ export default {
   components: {
     profileEditor,
     workHistory,
-    studyHistory
+    studyHistory,
+    projectsHistory,
+    honorsHistory,
+    contactInformation
   }
 };
 </script>
@@ -114,7 +141,8 @@ export default {
         padding-left: 32px;
         box-sizing: border-box;
       }
-      > div .profileInput {
+      > div .profileInput,
+      > div .ContactInformationInput {
         width: 415px;
         padding: 12px 32px 32px 32px;
       }
@@ -142,7 +170,9 @@ export default {
           margin-left: -34px;
         }
       }
-      > div .studyInput{
+      > div .studyInput,
+      > div .projectsInput, 
+      > div .honorsInput {
         width: 390px;
         padding: 20px 32px 32px 32px;
         position: relative;

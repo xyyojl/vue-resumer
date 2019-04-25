@@ -10,7 +10,7 @@
                 <el-form-item label="专业">
                     <el-input v-model="study.profession" placeholder="专业"></el-input>
                 </el-form-item>         
-                <el-form-item label="学历" label-width="80px">
+                <el-form-item label="学历" :inline="true" label-width="80px">
                     <el-select placeholder="学历" v-model="study.education">
                         <el-option label="大专" value="zhuanke"></el-option>
                         <el-option label="本科" value="Undergraduate"></el-option>
@@ -41,7 +41,7 @@ export default {
                 graduation:''
             })
         },
-        removeStudyHistory(){
+        removeStudyHistory(index){
             this.studyHistory.splice(index,1);
         }
     },
