@@ -10,10 +10,20 @@
                 <el-form-item label="你的职责">
                     <el-input v-model="project.responsibilities" placeholder="你的职责"></el-input>
                 </el-form-item>               
-                <el-form-item label="项目起止时间">
+                <!-- <el-form-item label="项目起止时间">
                     <el-col>
                         <el-date-picker v-model="project.useTime" type="daterange" placeholder="选择日期范围"></el-date-picker>
                     </el-col>
+                </el-form-item> -->
+                <el-form-item label="项目开始时间">
+                    <div class="block">
+                        <el-date-picker v-model="project.beginTime" type="date" placeholder="选择开始时间" :picker-options="pickerOptions0"></el-date-picker>
+                    </div>
+                </el-form-item>
+                <el-form-item label="项目结束时间">
+                    <div class="block">
+                        <el-date-picker v-model="project.endTime" type="date" placeholder="选择结束时间" :picker-options="pickerOptions0"></el-date-picker>
+                    </div>
                 </el-form-item>
                 <el-form-item label="项目介绍" prop="desc">
                     <el-input type="textarea" :autosize="{ minRows: 3, maxRows: 6}" placeholder="项目介绍" v-model="project.projectIntroduction"></el-input>

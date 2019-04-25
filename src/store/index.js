@@ -30,7 +30,9 @@ export default new Vuex.Store({
                 {
                     projectName: '',
                     responsibilities: '',
-                    useTime: '',
+                    // useTime: '',
+                    beginTime: '',
+                    endTime:'',
                     projectIntroduction: ''
                 }
             ],

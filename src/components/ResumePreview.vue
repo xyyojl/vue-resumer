@@ -31,7 +31,8 @@
         <li v-for="projectItem in filter(resume.projectsHistory)">
           <h3>{{projectItem.projectName }}</h3>
           <p>{{projectItem.responsibilities}}</p>
-          <p>{{projectItem.useTime | formatDate}}</p>
+          <!-- <p>{{projectItem.useTime | formatDate}}</p> -->
+           <p>{{projectItem.beginTime | formatDate}}-{{projectItem.endTime | formatDate}}</p>
           <p>{{projectItem.projectIntroduction}}</p>
         </li>
       </ul>
