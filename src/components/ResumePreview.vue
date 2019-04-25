@@ -12,7 +12,7 @@
       <ul>
         <li
           v-for="studyItem in filter(resume.studyHistory)"
-        >{{studyItem.school}} | {{studyItem.profession}} | {{studyItem.education}} | 毕业时间：{{studyItem.graduation}}</li>
+        >{{studyItem.school}} | {{studyItem.profession}} | {{studyItem.education}} | 毕业时间：{{studyItem.graduation | formatDate}}</li>
       </ul>
     </section>
     <section class="workItems">
@@ -31,7 +31,7 @@
         <li v-for="projectItem in filter(resume.projectsHistory)">
           <h3>{{projectItem.projectName }}</h3>
           <p>{{projectItem.responsibilities}}</p>
-          <p>{{projectItem.useTime}}</p>
+          <p>{{projectItem.useTime | formatDate}}</p>
           <p>{{projectItem.projectIntroduction}}</p>
         </li>
       </ul>
@@ -41,7 +41,7 @@
       <ul>
         <li v-for="honorItem in filter(resume.honorsHistory)">
           <h3>{{honorItem.awards}}</h3>
-          <p>{{honorItem.honorDate}}</p>
+          <p>{{honorItem.honorDate | formatDate}}</p>
         </li>
       </ul>
     </section>
@@ -56,7 +56,7 @@
   </div>
 </template>
 <script>
-
+import {formatDate} from '../comment/date.js'
 export default {
   name: "ResumePreview",
   computed: {
@@ -80,6 +80,12 @@ export default {
       }
       return empty;
     }
+  },
+  filters:{
+      formatDate(time){
+          let date = new Date(time);
+          return formatDate(date,'yyyy-MM-dd')
+      }
   }
 };
 </script>
