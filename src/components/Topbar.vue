@@ -13,7 +13,7 @@ export default {
     name:'Topbar',
     methods:{
         preview(){
-            this.$emit('preview');
+            this.$emit('preview',true);
         }
     }
 }

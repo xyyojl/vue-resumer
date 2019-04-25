@@ -1,12 +1,13 @@
 <template>
-  <div id="app">
+  <div id="app" v-bind:class="{previewMode:previewMode}">
     <header>
-      <Topbar class="topbar"/>
+      <Topbar class="topbar" v-on:preview="preview"/>
     </header>
     <main>
       <ResumeEditor class="editor"/>
       <ResumePreview class="preview"/>
     </main>
+    <el-button class="exitPreview" type="primary" v-on:click="exitPreview">退出预览</el-button>
   </div>
 </template>
 
@@ -17,7 +18,7 @@ import "./assets/reset.scss";
 import Topbar from "./components/Topbar";
 import ResumeEditor from "./components/ResumeEditor";
 import ResumePreview from "./components/ResumePreview";
-import store from './store/index'
+import store from "./store/index";
 
 export default {
   name: "App",
@@ -25,16 +26,24 @@ export default {
   components: {
     Topbar,
     ResumeEditor,
-    ResumePreview,
+    ResumePreview
   },
-  computed:{
-    previewMode(){
-      return this.$store.state.previewMode;
+  computed: {
+    previewMode:{
+      get(){
+        return this.$store.state.previewMode;
+      },
+      set(value){
+        return this.$store.commit('changePreviewMode', value)
+      }
+    }
+  },
+  methods: {
+    preview() {
+      this.previewMode = true;
     },
-  },
-  methods:{
-    preview(){
-      
+    exitPreview() {
+      this.previewMode = false;
     }
   }
 };
@@ -74,7 +83,7 @@ main {
     margin: 16px 16px 16px 8px;
     box-shadow: 0 0 3px hsla(0, 0, 0, 0.5);
     border-radius: 4px;
-    overflow: hidden;
+    overflow: auto;
   }
 }
 .icon {
@@ -83,6 +92,23 @@ main {
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
+}
+.previewMode #resumeEditor,
+.previewMode #topbar{
+  display: none;
+}
+.previewMode #resumePreview{
+  max-width: 800px;
+  margin: 32px auto;
+}
+.exitPreview{
+  display: none;
+}
+.previewMode .exitPreview{
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  display: block;
 }
 </style>
 

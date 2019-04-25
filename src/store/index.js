@@ -52,6 +52,9 @@ export default new Vuex.Store({
     mutations: {
         switchTab(state, payload){
             state.currentTab = payload // 关于 payload 看这里 http://vuex.vuejs.org/zh-cn/mutations.html#提交载荷（payload）
+        },
+        changePreviewMode(state, payload){
+            state.previewMode = payload
         }
     }
 })
