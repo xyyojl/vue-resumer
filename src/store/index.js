@@ -6,6 +6,7 @@ Vue.use(Vuex) // 不写这句话浏览器控制台就会报错，于是我就写
 export default new Vuex.Store({
     state: {
         currentTab: 0,
+        previewMode:false,
         icons: ["shenfenzheng", "work", "book", "xiangmu", "jiangbei", "phone"],
         resume:{
             profile: {

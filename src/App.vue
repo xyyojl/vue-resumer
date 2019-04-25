@@ -26,6 +26,16 @@ export default {
     Topbar,
     ResumeEditor,
     ResumePreview,
+  },
+  computed:{
+    previewMode(){
+      return this.$store.state.previewMode;
+    },
+  },
+  methods:{
+    preview(){
+      
+    }
   }
 };
 </script>
