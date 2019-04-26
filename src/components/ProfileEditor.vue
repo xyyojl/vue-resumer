@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>个人信息</h2><!-- , $event.target.value -->
+        <h2>个人信息</h2>
         <el-form class="profileInput">
             <el-form-item label="姓名">
             <el-input :value="profile.name" @input="changeResumeField($event,'profile','name')" placeholder="姓名"></el-input>
@@ -27,11 +27,6 @@ export default {
     props:['profile'],
     methods:{
         changeResumeField($event,field, subfield){
-            console.log(1)
-            console.log($event) // 输入值：xxx
-            console.log(field)
-            console.log(subfield) // name
-            // field, subfield
             this.$store.commit('updateResume',{
                 field, // profile
                 subfield, // key

@@ -70,25 +70,6 @@ export default {
     resume(){
       return this.$store.state.resume;
     },
-    /* 
-    profile(){
-      return this.$store.state.profile;
-    },
-    workHistory(){
-      return this.$store.state.workHistory;
-    },
-    studyHistory(){
-      return this.$store.state.studyHistory;
-    },
-    projectsHistory(){
-      return this.$store.state.projectsHistory;
-    },
-    honorsHistory(){
-      return this.$store.state.honorsHistory;
-    },
-    contactInformation(){
-      return this.$store.state.contactInformation;
-    },  */
   }
 };
 </script>

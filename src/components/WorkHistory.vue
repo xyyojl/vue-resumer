@@ -47,10 +47,6 @@ export default {
       this.workHistory.splice(index, 1);
     },
     changeResumeField($event, field, subfield,index) {
-      /* console.log(1)
-      console.log($event); // 输入值：xxx
-      console.log(field); // workHistory
-      console.log(subfield); // company */
       this.$store.commit("updateResume", {
         field,
         subfield,
