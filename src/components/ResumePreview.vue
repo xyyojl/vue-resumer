@@ -12,7 +12,7 @@
       <ul>
         <li
           v-for="studyItem in filter(resume.studyHistory)"
-        >{{studyItem.school}} | {{studyItem.profession}} | {{studyItem.education}} | 毕业时间：{{studyItem.graduation | formatDate}}</li>
+        >{{studyItem.school}} | {{studyItem.profession}} | {{studyItem.education}} | 毕业时间<span v-show="studyItem.graduation">{{studyItem.graduation | formatDate}}</span> </li>
       </ul>
     </section>
     <section class="workItems">
@@ -31,8 +31,8 @@
         <li v-for="projectItem in filter(resume.projectsHistory)">
           <h3>{{projectItem.projectName }}</h3>
           <p>{{projectItem.responsibilities}}</p>
-          <!-- <p>{{projectItem.useTime | formatDate}}</p> -->
-          <p>{{projectItem.beginTime | formatDate}} - {{projectItem.endTime | formatDate}}</p>
+          <!-- {{projectItem.beginTime | formatDate}} - {{projectItem.endTime | formatDate}} -->
+          <p><span v-show="projectItem.beginTime">{{projectItem.beginTime | formatDate}} - </span><span v-show="projectItem.endTime">{{projectItem.endTime | formatDate}}</span></p>
           <p>{{projectItem.projectIntroduction}}</p>
         </li>
       </ul>
@@ -42,7 +42,7 @@
       <ul>
         <li v-for="honorItem in filter(resume.honorsHistory)">
           <h3>{{honorItem.awards}}</h3>
-          <p>{{honorItem.honorDate | formatDate}}</p>
+          <p v-show="honorItem.honorDate">{{honorItem.honorDate | formatDate}}</p>
         </li>
       </ul>
     </section>
@@ -50,7 +50,7 @@
       <h2>联系方式</h2>
       <div>
         <ul>
-          <li v-for="contactItem in filter(resume.contactInformation)">
+          <li v-for="contactItem in resume.contactInformation">
             <p>电话：{{contactItem.phone || '14323872482'}}</p>
             <p>邮箱：{{contactItem.email || 'm13631897256@163.com'}}</p>
             <p>个人主页：{{contactItem.blog || 'www.github.com/xyyojl'}}</p>
