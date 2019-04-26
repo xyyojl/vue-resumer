@@ -36,7 +36,7 @@ export default {
       set(value){
         return this.$store.commit('changePreviewMode', value)
       }
-    }
+    },
   },
   methods: {
     preview() {
@@ -45,7 +45,15 @@ export default {
     exitPreview() {
       this.previewMode = false;
     }
-  }
+  },
+  /* created(){
+    let state = localStorage.getItem('vuex')
+    console.log(state)
+    if(state){
+      state = JSON.parse(state) 
+    }
+    this.$store.commit('initState', state)
+  }, */
 };
 </script>
 

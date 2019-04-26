@@ -1,5 +1,6 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
+import createPersistedState from "vuex-persistedstate"
 
 Vue.use(Vuex) // 不写这句话浏览器控制台就会报错，于是我就写了
 
@@ -53,10 +54,19 @@ export default new Vuex.Store({
     },
     mutations: {
         switchTab(state, payload){
-            state.currentTab = payload // 关于 payload 看这里 http://vuex.vuejs.org/zh-cn/mutations.html#提交载荷（payload）
+            state.currentTab = payload; // 关于 payload 看这里 http://vuex.vuejs.org/zh-cn/mutations.html#提交载荷（payload）
         },
         changePreviewMode(state, payload){
-            state.previewMode = payload
+            state.previewMode = payload;
+        },
+        xxx(state, payload){
+            console.log(1)
+            console.log(payload)
+            state.resume.profile = payload;
         }
-    }
+        /* initState(state, payload){
+            Object.assign(state, payload);
+        } */
+    },
+    plugins: [createPersistedState()]
 })

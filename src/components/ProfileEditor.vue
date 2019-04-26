@@ -22,7 +22,17 @@
 </template>
 <script>
 export default {
-    props:['profile']
+    // props:['profile'],
+    computed: {
+        profile:{
+            get(){
+                return this.$store.state.resume.profile;
+            },
+            set(value){
+                return this.$store.commit('xxx', value)
+            }
+        }
+  },
 }
 </script>
 <style lang="scss">
