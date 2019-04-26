@@ -5,13 +5,15 @@
             <div v-for="(study,index) in studyHistory" class="studyBlock"> 
                 <i class="el-icon-circle-close" v-on:click="removeStudyHistory(index)"></i>
                 <el-form-item label="学校名称">
-                    <el-input v-model="study.school" placeholder="学校名称"></el-input>
+                    <el-input :value="study.school" @input="changeResumeField($event,'studyHistory','school',index)" placeholder="学校名称"></el-input>
                 </el-form-item>     
                 <el-form-item label="专业">
-                    <el-input v-model="study.profession" placeholder="专业"></el-input>
+                    <el-input :value="study.profession" @input="changeResumeField($event,'studyHistory','profession',index)" placeholder="专业"></el-input>
                 </el-form-item>         
                 <el-form-item label="学历" :inline="true" label-width="80px">
-                    <el-select placeholder="学历" v-model="study.education">
+                    <el-select placeholder="学历" 
+                    :value="study.education"
+                    @input="changeResumeField($event,'studyHistory','education',index)">
                         <el-option label="大专" value="大专"></el-option>
                         <el-option label="本科" value="本科"></el-option>
                         <el-option label="硕士" value="硕士"></el-option>
@@ -21,7 +23,7 @@
                 </el-form-item>         
                 <el-form-item label="毕业时间">
                     <div class="block">
-                        <el-date-picker  v-model="study.graduation" type="date" placeholder="选择日期" :picker-options="pickerOptions0"></el-date-picker>
+                        <el-date-picker  :value="study.graduation" @input="changeResumeField($event,'studyHistory','graduation',index)" type="date" placeholder="选择日期" :picker-options="pickerOptions0"></el-date-picker>
                     </div>
                 </el-form-item>
             </div>
@@ -43,6 +45,14 @@ export default {
         },
         removeStudyHistory(index){
             this.studyHistory.splice(index,1);
+        },
+        changeResumeField($event,field, subfield,index){
+            this.$store.commit('updateResume',{
+                field, 
+                subfield, 
+                'value':$event,
+                index
+            })
         }
     },
     data(){

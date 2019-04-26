@@ -32,7 +32,7 @@
           <h3>{{projectItem.projectName }}</h3>
           <p>{{projectItem.responsibilities}}</p>
           <!-- <p>{{projectItem.useTime | formatDate}}</p> -->
-           <p>{{projectItem.beginTime | formatDate}}-{{projectItem.endTime | formatDate}}</p>
+          <p>{{projectItem.beginTime | formatDate}} - {{projectItem.endTime | formatDate}}</p>
           <p>{{projectItem.projectIntroduction}}</p>
         </li>
       </ul>
@@ -49,15 +49,19 @@
     <section class="contact">
       <h2>联系方式</h2>
       <div>
-        <p>电话：{{resume.contactInformation.phone || '14323872482'}}</p>
-        <p>邮箱：{{resume.contactInformation.email || 'm13631897256@163.com'}}</p>
-        <p>个人主页：{{resume.contactInformation.blog || 'www.github.com/xyyojl'}}</p>
+        <ul>
+          <li v-for="contactItem in filter(resume.contactInformation)">
+            <p>电话：{{contactItem.phone || '14323872482'}}</p>
+            <p>邮箱：{{contactItem.email || 'm13631897256@163.com'}}</p>
+            <p>个人主页：{{contactItem.blog || 'www.github.com/xyyojl'}}</p>
+          </li>
+        </ul>
       </div>
     </section>
   </div>
 </template>
 <script>
-import {formatDate} from '../comment/date.js'
+import { formatDate } from "../comment/date.js";
 export default {
   name: "ResumePreview",
   computed: {
@@ -82,11 +86,11 @@ export default {
       return empty;
     }
   },
-  filters:{
-      formatDate(time){
-          let date = new Date(time);
-          return formatDate(date,'yyyy-MM-dd')
-      }
+  filters: {
+    formatDate(time) {
+      let date = new Date(time);
+      return formatDate(date, "yyyy-MM-dd");
+    }
   }
 };
 </script>
@@ -99,6 +103,9 @@ export default {
     border-bottom: 1px solid #dadada;
     > .solgan {
       font-size: 30px;
+    }
+    > p{
+      font-size: 18px;
     }
   }
   > section h2 {
@@ -113,7 +120,7 @@ export default {
     color: #333;
     > div {
       padding-top: 16px;
-      > p {
+      p {
         font-size: 18px;
       }
     }

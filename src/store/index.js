@@ -64,12 +64,8 @@ export default new Vuex.Store({
                 state.resume[field][index][subfield] = value;
             }else{
                 state.resume[field][subfield] = value;
-            }
-            
+            } 
         }
-        /* initState(state, payload){
-            Object.assign(state, payload);
-        } */
     },
     plugins: [createPersistedState()]
 })
