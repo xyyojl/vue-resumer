@@ -5,16 +5,25 @@
       <div class="workBlock" v-for="(work,index) in workHistory">
         <i class="el-icon-circle-close" v-on:click="removeWorkHistory(index)"></i>
         <el-form-item label="公司名称">
-          <el-input v-model="work.company" placeholder="公司名称"></el-input>
+          <el-input
+            :value="work.company"
+            @input="changeResumeField($event,'workHistory','company',index)"
+            placeholder="公司名称"
+          ></el-input>
         </el-form-item>
         <el-form-item label="职位">
-          <el-input v-model="work.post" placeholder="职位"></el-input>
+          <el-input
+            :value="work.post"
+            @input="changeResumeField($event,'workHistory','post',index)"
+            placeholder="职位"
+          ></el-input>
         </el-form-item>
         <el-form-item label="工作内容" prop="desc">
           <el-input
             type="textarea"
             :autosize="{ minRows: 3, maxRows: 6}"
-            v-model="work.content"
+            :value="work.content"
+            @input="changeResumeField($event,'workHistory','content',index)"
             placeholder="工作内容"
           ></el-input>
         </el-form-item>
@@ -36,16 +45,27 @@ export default {
     },
     removeWorkHistory(index) {
       this.workHistory.splice(index, 1);
+    },
+    changeResumeField($event, field, subfield,index) {
+      /* console.log(1)
+      console.log($event); // 输入值：xxx
+      console.log(field); // workHistory
+      console.log(subfield); // company */
+      this.$store.commit("updateResume", {
+        field,
+        subfield,
+        value: $event,
+        index
+      });
     }
   },
-  data(){
+  data() {
     return {
       // labelPosition:'top',
-    }
+    };
   }
 };
 </script>
 <style lang="scss">
-
 </style>
 

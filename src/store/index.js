@@ -59,12 +59,26 @@ export default new Vuex.Store({
         changePreviewMode(state, payload){
             state.previewMode = payload;
         },
-        updateResume(state, {field, subfield, value}){
-            console.log('xxx')
+        updateResume(state, {field, subfield, value,index}){
+            /* console.log('xxx')
             console.log(field) // 对象
             console.log(subfield) // name
-            console.log(value) // 值
-            state.resume[field][subfield] = value;
+            console.log(value) // 值 */
+            console.log('xx')
+            console.log(state.resume[field]);
+            console.log(state.resume[field][subfield]);
+            if(state.resume[field] instanceof Array){
+                console.log(1);
+                console.log(state.resume[field])
+                console.log(state.resume[field][index]);
+                console.log(subfield)
+                console.log(state.resume[field][index][subfield]);
+                console.log(2)
+                state.resume[field][index][subfield] = value;
+            }else{
+                state.resume[field][subfield] = value;
+            }
+            
         }
         /* initState(state, payload){
             Object.assign(state, payload);
