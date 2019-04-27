@@ -4,6 +4,11 @@
         <el-form class="studyInput" :label-position="labelPosition">
             <div v-for="(study,index) in studyHistory" class="studyBlock"> 
                 <i class="el-icon-circle-close" v-on:click="removeStudyHistory(index)"></i>
+                <el-form-item label="毕业时间">
+                    <div class="block">
+                        <el-date-picker  :value="study.graduation" @input="changeResumeField($event,'studyHistory','graduation',index)" type="date" placeholder="选择日期" :picker-options="pickerOptions0"></el-date-picker>
+                    </div>
+                </el-form-item>
                 <el-form-item label="学校名称">
                     <el-input :value="study.school" @input="changeResumeField($event,'studyHistory','school',index)" placeholder="学校名称"></el-input>
                 </el-form-item>     
@@ -21,11 +26,7 @@
                         <el-option label="其它" value="其它"></el-option>
                     </el-select>
                 </el-form-item>         
-                <el-form-item label="毕业时间">
-                    <div class="block">
-                        <el-date-picker  :value="study.graduation" @input="changeResumeField($event,'studyHistory','graduation',index)" type="date" placeholder="选择日期" :picker-options="pickerOptions0"></el-date-picker>
-                    </div>
-                </el-form-item>
+                
             </div>
             <el-button class="btn" type="text" v-on:click="addStudyHistory">+ 添加更多</el-button>                    
         </el-form>

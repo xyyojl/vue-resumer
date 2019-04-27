@@ -19,10 +19,10 @@
         <profileEditor v-bind:profile="resume.profile"/>
       </li>
       <li v-bind:class="{active:currentTab === 1}">
-        <workHistory v-bind:workHistory="resume.workHistory"/>
+        <studyHistory v-bind:studyHistory="resume.studyHistory"/>
       </li>
       <li v-bind:class="{active:currentTab === 2}">
-        <studyHistory v-bind:studyHistory="resume.studyHistory"></studyHistory>
+        <workHistory v-bind:workHistory="resume.workHistory"/>
       </li>
       <li v-bind:class="{active:currentTab === 3}">
         <projectsHistory v-bind:projectsHistory="resume.projectsHistory"/>
